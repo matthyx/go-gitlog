@@ -16,6 +16,7 @@ const (
 	subjectField   = "SUBJECT"
 	bodyField      = "BODY"
 	tagField       = "TAG"
+	parentField    = "PARENT"
 
 	hashFormat      = hashField + ":%H %h"
 	treeFormat      = treeField + ":%T %t"
@@ -24,12 +25,14 @@ const (
 	subjectFormat   = subjectField + ":%s"
 	bodyFormat      = bodyField + ":%b"
 	tagFormat       = tagField + ":%D"
+	parentFormat    = parentField + ":%P"
 
 	separator = "@@__GIT_LOG_SEPARATOR__@@"
 	delimiter = "@@__GIT_LOG_DELIMITER__@@"
 
 	logFormat = separator +
 		hashFormat + delimiter +
+		parentFormat + delimiter +
 		treeFormat + delimiter +
 		authorFormat + delimiter +
 		committerFormat + delimiter +
@@ -118,6 +121,7 @@ func (gitLog *gitLogImpl) workdir() (func() error, error) {
 func (gitLog *gitLogImpl) buildArgs(rev RevArgs, params *Params) []string {
 	args := []string{
 		"--no-decorate",
+		"--name-only",
 		"--pretty=\"" + logFormat + "\"",
 	}
 
@@ -172,7 +176,7 @@ func (gitLog *gitLogImpl) Log(rev RevArgs, params *Params) ([]*Commit, error) {
 		return nil, err
 	}
 
-	commits, err := gitLog.parser.parse(&out)
+	commits, err := gitLog.parser.parse(out)
 	if err != nil {
 		return nil, err
 	}

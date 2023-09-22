@@ -1,4 +1,4 @@
-module github.com/wadackel/go-gitlog
+module github.com/matthyx/go-gitlog
 
 go 1.20
 

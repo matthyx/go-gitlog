@@ -43,4 +43,6 @@ type Commit struct {
 	Tag       *Tag
 	Subject   string
 	Body      string
+	Files     []string
+	Parents   []string
 }
