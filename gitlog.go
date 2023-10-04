@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	gitcmd "github.com/tsuyoshiwada/go-gitcmd"
+	"github.com/matthyx/go-gitlog/gitcmd"
 )
 
 const (
