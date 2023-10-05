@@ -23,6 +23,35 @@ bar
 core/core/list.go
 core/pkg/resultshandling/printer/v2/prettyprinter/tableprinter/configurationprinter/categorytable.go
 core/pkg/resultshandling/printer/v2/prettyprinter/tableprinter/configurationprinter/frameworkscan.go
+@@__GIT_LOG_SEPARATOR__@@HASH:3e7a6b516b7f7bdab3f8f8f44d81ae3e37189355 3e7a6b51@@__GIT_LOG_DELIMITER__@@PARENT:8257e312326ad4b7752427d6f08b85e022d9d5c1@@__GIT_LOG_DELIMITER__@@TREE:89a5173e97d2da95b833877739a95fb4c2affa83 89a5173e@@__GIT_LOG_DELIMITER__@@AUTHOR:Matthias Bertschy<matthias.bertschy@gmail.com>[1695046388]@@__GIT_LOG_DELIMITER__@@COMMITTER:GitHub<noreply@github.com>[1695046388]@@__GIT_LOG_DELIMITER__@@TAG:origin/update-help@@__GIT_LOG_DELIMITER__@@SUBJECT:Separate docker builds for kubescape and kubescape-cli (#1390)@@__GIT_LOG_DELIMITER__@@BODY:* create a separate Dockerfile for httphandler
+
+Signed-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>
+
+* add Dockerfile for cli, edit README
+
+Signed-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>
+
+* modify gh action to use new cli Dockerfile
+
+Signed-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>
+
+---------
+
+Signed-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>
+
+.dockerignore
+.github/workflows/02-release.yaml
+.github/workflows/b-binary-build-and-e2e-tests.yaml
+.github/workflows/build-image.yaml
+.github/workflows/d-publish-image.yaml
+.gitignore
+build/Dockerfile
+build/Dockerfile.dockerignore
+build/README.md
+build/kubescape-cli.Dockerfile
+build/kubescape-cli.Dockerfile.dockerignore
+httphandler/Makefile
+httphandler/build.py
 @@__GIT_LOG_SEPARATOR__@@HASH:806512fe97c9c3397b7ed30c0b4076032112f697 806512f@@__GIT_LOG_DELIMITER__@@TREE:4b825dc642cb6eb9a060e54bf8d69288fbee4904 4b825dc@@__GIT_LOG_DELIMITER__@@AUTHOR:tsuyoshiwada<mail@example.com>[1517122160]@@__GIT_LOG_DELIMITER__@@COMMITTER:tsuyoshiwada<mail@example.com>[1517122160]@@__GIT_LOG_DELIMITER__@@TAG:tag: v0.2.1@@__GIT_LOG_DELIMITER__@@SUBJECT:chore(*): Initial commit@@__GIT_LOG_DELIMITER__@@BODY:`
 
 	table := []*Commit{
@@ -139,6 +168,49 @@ bar`,
 				"core/pkg/resultshandling/printer/v2/prettyprinter/tableprinter/configurationprinter/frameworkscan.go",
 			},
 			Parents: []string{"e611cec238f51147c5dc903996f0ae9f1d7bdd7a"},
+		},
+		{
+			Hash: &Hash{
+				Long:  "3e7a6b516b7f7bdab3f8f8f44d81ae3e37189355",
+				Short: "3e7a6b51",
+			},
+			Tree: &Tree{
+				Long:  "89a5173e97d2da95b833877739a95fb4c2affa83",
+				Short: "89a5173e",
+			},
+			Author: &Author{
+				Name:  "Matthias Bertschy",
+				Email: "matthias.bertschy@gmail.com",
+				Date:  time.Unix(1695046388, 0),
+			},
+			Committer: &Committer{
+				Name:  "GitHub",
+				Email: "noreply@github.com",
+				Date:  time.Unix(1695046388, 0),
+			},
+			Tag: &Tag{
+				Name: "",
+				Date: time.Unix(1695046388, 0),
+			},
+			Subject: "Separate docker builds for kubescape and kubescape-cli (#1390)",
+			Body:    "* create a separate Dockerfile for httphandler\n\nSigned-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>\n\n* add Dockerfile for cli, edit README\n\nSigned-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>\n\n* modify gh action to use new cli Dockerfile\n\nSigned-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>\n\n---------\n\nSigned-off-by: Matthias Bertschy <matthias.bertschy@gmail.com>",
+
+			Files: []string{
+				".dockerignore",
+				".github/workflows/02-release.yaml",
+				".github/workflows/b-binary-build-and-e2e-tests.yaml",
+				".github/workflows/build-image.yaml",
+				".github/workflows/d-publish-image.yaml",
+				".gitignore",
+				"build/Dockerfile",
+				"build/Dockerfile.dockerignore",
+				"build/README.md",
+				"build/kubescape-cli.Dockerfile",
+				"build/kubescape-cli.Dockerfile.dockerignore",
+				"httphandler/Makefile",
+				"httphandler/build.py",
+			},
+			Parents: []string{"8257e312326ad4b7752427d6f08b85e022d9d5c1"},
 		},
 		{
 			Hash: &Hash{

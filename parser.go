@@ -144,12 +144,15 @@ func trimAll(s string) string {
 }
 
 func (p *parser) parseBody(str string) (string, []string) {
-	split := strings.SplitN(p.convNewline(str), "\n\n", 2)
-	body := trimAll(split[0])
-	if len(split) < 2 || len(split[1]) == 0 {
+	lastInd := strings.LastIndex(p.convNewline(str), "\n\n")
+	if lastInd < 0 {
+		return trimAll(str), nil
+	}
+	body := trimAll(str[:lastInd])
+	files := trimAll(str[lastInd+1:])
+	if files == "" {
 		return body, nil
 	}
-	files := trimAll(split[1])
 	return body, strings.Split(files, "\n")
 }
 
